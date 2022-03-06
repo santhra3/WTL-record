@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>My First Ajax Program by Me</title>
+<!--Put the Ajax code below.-->
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp = new XMLHttpRequest();
+ }
+else
+  {// code for IE6, IE5
+  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange = function()
+  {
+  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    {
+    document.getElementById("myImage").innerHTML = xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","ajax-data.txt",true);
+xmlhttp.send();
+}
+</script><!--End of the script-->
+</head>
+<body style="text-align: center;">
+<!--An image goes here to test the Ajax program.-->
+<div id="myImage">
+<h2>Click the button below to make the flower disappear.</h2>
+<img src="MyPicture.png" width="500px" height="300px" title="Yellow Flower" alt="an image of a yellow flower"/>
+</div>
+<br/>
+<!--A button goes here-->
+<button type="button" onclick="loadXMLDoc()">Click here to make the picture disappear!</button>
+</body>
+</html>
+output:-
